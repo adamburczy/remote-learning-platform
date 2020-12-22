@@ -1,0 +1,139 @@
+body { 
+    margin:0;
+    background: #6ba8e9;
+    overflow: hidden;
+}
+
+div {
+    height: 164px;
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Cairo', sans-serif; 
+    font-size: 38px;
+    color: white;
+    position: absolute;
+    top: 30px;
+    right: 200px;
+}
+
+h2 {
+    font-family: 'Cairo', sans-serif; 
+    font-size: 25px;
+    line-height: 1;
+    color: white;
+}
+
+h3 {
+    font-family: 'Cairo', sans-serif; 
+    font-size: 23px;
+    color: white;
+    text-align: center;
+    line-height: 1.2;
+    position: absolute;
+    top: 185px;
+
+}
+
+button {
+    border: none;
+    height: 60px;
+    width: 140px;
+    border-radius: 10px;
+    font-size: 30px;
+    font-family: 'Cairo', sans-serif; 
+    color: #3f83cc;
+}
+
+button:hover {
+    background-color: #bac1ca;
+}
+
+#login-button {
+    position: absolute;
+    bottom: 210px;
+    left: 370px;
+}
+
+#signup-button {
+    position: absolute;
+    bottom: 210px;
+    right: 370px;
+}
+
+form {
+    position:absolute;
+    top: 200px;
+    left: 550px;
+}
+
+.slider {
+    height: 170px;
+    width: 400px;
+    background-color: #3f83cc;
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    bottom: -170px;
+    /* bottom: 0px; */
+    right: 0px;
+}
+
+#question {
+    position: absolute;
+    top: 50px;
+    left: 300px;
+    font-family: 'Cairo', sans-serif; 
+    font-size: 50px;
+    color: white;
+    position: absolute;
+    top: 130px;
+    left: 350px;
+    
+}
+
+a {
+    text-decoration: none;
+    color: #0f447e;
+}
+
+
+#student-icon {
+    position: absolute;
+    top: 300px;
+    left: 400px;
+}
+
+#teacher-icon {
+    position: absolute;
+    top: 300px;
+    left: 750px;
+}
+
+input {
+    width: 300px;
+    height: 30px;
+    border: none;
+    display:block;
+}
+
+label {
+    font-family: 'Cairo', sans-serif; 
+    font-size: 20px;
+    color: white;
+}
+
+#submit-button {
+    border: none;
+    height: 60px;
+    width: 140px;
+    border-radius: 10px;
+    font-size: 30px;
+    font-family: 'Cairo', sans-serif; 
+    color: #3f83cc;
+    position: relative;
+    top: 30px;
+    left: 80px;
+}
+

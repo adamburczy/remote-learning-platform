@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'frontend/style.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<h5><span id='question'>Are you a
+     <a href="{% url 'frontend:student_signup' %}">Student</a>
+      or
+      <a href="{% url 'frontend:teacher_signup' %}">Teacher</a>?</span></h5>
+      <img id="student-icon"
+      src="{% static 'frontend/student-icon.png' %}"
+      alt="cool vector graphic">
+      <img id="teacher-icon"
+      src="{% static 'frontend/teacher.png' %}"
+      alt="cool vector graphic">
+</body>
+</html>
