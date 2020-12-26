@@ -9,13 +9,22 @@ class PlatformUser(models.Model):
     ]
     group_choice = models.CharField(max_length=20, choices=GROUP_CHOICES)
 
-class Project(models.Model):
-    nazwa = models.CharField(max_length=50)
-    przedmiot = models.CharField(max_length=50)
-    nauczyciel = models.CharField(max_length=4)
-    opis = models.TextField(max_length=300, blank = True)
-    data = models.DateField()
+class ProjectToCreate(models.Model):
+    project_name = models.CharField(max_length=50)
+    subject = models.CharField(max_length=50)
+    teacher = models.CharField(max_length=30)
+    _class = models.CharField(max_length=3)
+    description = models.TextField(max_length=300, blank = True)
+    deadline = models.DateField()
 
+    def __str__(self):
+        return self.project_name
+
+class ProjectToUpload(models.Model):
+    project_name = models.CharField(max_length=50)
+    surname = models.CharField(max_length=50)
+    project = models.FileField()
+    done = models.BooleanField(default=False)
 
 class Student(models.Model):
    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True)
@@ -39,3 +48,10 @@ class Teacher(models.Model):
 
    def __str__(self):
       return self.user.username
+
+class Lesson(models.Model):
+    subject = models.CharField(max_length=50)
+    date = models.DateField()
+
+    def __str__(self):
+       return self.subject

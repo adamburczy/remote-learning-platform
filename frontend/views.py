@@ -4,7 +4,8 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
-from .forms import UploadProjectForm, CreateProjectForm
+from .forms import UploadProjectForm, CreateProjectForm, CreateLessonForm
+from .models import ProjectToCreate, Lesson
 
 def welcome(request):
     return render(request, 'welcome.html')
@@ -47,21 +48,42 @@ def student_register(request):   #thats just basic signup view, without adding t
 
 #@permission_required('projects.teacher-site-acces', login_url='/student-pannel/')
 def teacher_pannel(request):
-    #projects_all = Project.objects.all()
+    all_lessons = Lesson.objects.all()
     if request.method =='POST':
-        create_project = UploadProjectForm(request.POST) 
+        create_lesson = CreateLessonForm(request.POST) 
+        if create_project.is_valid:
+            print('tu bedzie message')
+    else:
+        create_lesson = CreateLessonForm()
         #if create_project.is_valid: # message 'zadanie oddano', oddane value = True
         #else: upload_project = UploadProjectForm()
-    return render(request, 'student_pannel.html', {'form': create_project})
+    return render(request, 'teacher_pannel.html', {'form':create_lesson, 'lessons': all_lessons})
 
 def student_pannel(request):
+    active_projects = ProjectToCreate.objects.all()
     if request.method =='POST':
         upload_project = UploadProjectForm(request.POST) 
         if upload_project.is_valid: # message 'zadanie oddano', oddane value = True
             print('tu bedzie konfiguracja pliku')
     else:
         upload_project = UploadProjectForm()
-    return render(request, 'student_pannel.html', {'form': upload_project})
+    return render(request, 'student_pannel.html', {'form': upload_project, 'active_projects': active_projects})
+
+def all_projects(request):
+    projects = ProjectToCreate.objects.all()
+    return render(request, 'projects.html', {'projects': projects})
+
+def create_project(request):
+    if request.method =='POST':
+        create_project = CreateProjectForm(request.POST) 
+
+        if create_project.is_valid:
+            print('tu bedzie message')
+    else:
+        create_project = CreateProjectForm()
+        #if create_project.is_valid: # message 'zadanie oddano', oddane value = True
+        #else: upload_project = UploadProjectForm()
+    return render(request, 'create-project.html', {'form': create_project})
 
 
 

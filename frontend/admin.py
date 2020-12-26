@@ -1,14 +1,10 @@
 from django.contrib import admin
-from .models import Teacher, Student, PlatformUser
+from .models import ProjectToCreate, Lesson
 
-class TeacherAdmin(admin.ModelAdmin):
+class ProjectsAdmin(admin.ModelAdmin):
     pass
-admin.site.register(Teacher, TeacherAdmin)
+admin.site.register(ProjectToCreate, ProjectsAdmin)
 
-class StudentAdmin(admin.ModelAdmin):
+class LessonAdmin(admin.ModelAdmin):
     pass
-admin.site.register(Student, StudentAdmin)
-
-class UserAdmin(admin.ModelAdmin):
-    pass
-admin.site.register(PlatformUser, UserAdmin)
+admin.site.register(Lesson, LessonAdmin)

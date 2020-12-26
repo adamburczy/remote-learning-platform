@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'frontend/style.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="all-projects">
+    <h3 id="all-header">All Projects:</h3>
+    {% if projects %}
+    {% for project in projects %}
+    <div id="names">
+        <ul>
+        <li><h5 class="project-name">{{ project.project_name }}</h5></li>
+        </ul>
+    </div>
+    <div id="desc">
+        <ul>
+        <li><p class="project-desc">{{ project.description }}</p></li>
+        </ul>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h5>There's no projects</h5>
+    {% endif %}
+</div>
+
+</body>
+</html>

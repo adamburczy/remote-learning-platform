@@ -1,14 +1,20 @@
 from django import forms
-from .models import Project
+from  .models import ProjectToCreate, ProjectToUpload, Lesson
 
 class UploadProjectForm(forms.ModelForm): #Form zamiast ModelForm
     class Meta:
-        model = Project
+        model = ProjectToUpload
+        fields = ('project_name', 'surname', 'project', 'done')
+        widgets = {'done': forms.HiddenInput()}
+
+class CreateProjectForm(forms.ModelForm): 
+    class Meta:
+        model = ProjectToCreate
         fields = '__all__'
 
-class CreateProjectForm(forms.ModelForm): #Form zamiast ModelForm
+class CreateLessonForm(forms.ModelForm): 
     class Meta:
-        model = Project
+        model = Lesson
         fields = '__all__'
 
 

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import welcome, choose_role, teacher_register, student_register, student_pannel, teacher_pannel
+from .views import welcome, choose_role, teacher_register, student_register, student_pannel, teacher_pannel, all_projects, create_project
 from django.contrib.auth import views as auth_views
 
 app_name = 'frontend'
@@ -12,4 +12,6 @@ urlpatterns = [
     path('student-signup/', student_register, name='student_signup'),
     path('student-pannel', student_pannel, name='student_pannel'),
     path('teacher-pannel', teacher_pannel, name='teacher_pannel'),
+    path('projects/', all_projects, name='all_projects'),
+    path('create-project', create_project, name='create_project')
 ]

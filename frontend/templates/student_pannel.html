@@ -7,14 +7,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>Witaj, user!</h1>
-<div class="project-form">
+<h1 id="hello-student">Hello, Student!</h1>
+<h1 id="upload">Upload a Project:</h1>
+<div id="project-form">
     <form action="." method="post">
         {{ form.as_p }}
         {% csrf_token %}
-        <input type="submit" value="Oddaj zadanie">
+        <input type="submit" value="Upload Project">
     </form>
 </div>
+<h1 id="projects">Projects</h1>
+<div id="active-projects">
+    <h3 id="header">Active Projects:</h3>
+    {% if active_projects %}
+    {% for active_project in active_projects %}
+    <div id="names">
+        <ul>
+        <li><h5 class="project-name">{{ active_project.project_name }}</h5></li>
+        </ul>
+    </div>
+    <div id="desc">
+        <ul>
+        <li><p class="project-desc">{{ active_project.description }}</p></li>
+        </ul>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h5>There's no active projects</h5>
+    {% endif %}
+</div>
+<a href="{% url 'frontend:all_projects' %}"><button id="show">Show All</button></a>
 
 </body>
 </html>

@@ -8,9 +8,11 @@
 </head>
 <body>
 <h5><span id='question'>Are you a
-     <a href="{% url 'frontend:student_signup' %}">Student</a>
+     <!-- <a href="{% url 'frontend:student_signup' %}">Student</a> -->
+    <a href="{% url 'frontend:student_pannel' %}">Student</a>
       or
-      <a href="{% url 'frontend:teacher_signup' %}">Teacher</a>?</span></h5>
+      <!--<a href="{% url 'frontend:teacher_signup' %}">Teacher</a>?</span></h5> -->
+      <a href="{% url 'frontend:teacher_pannel' %}">Teacher</a>?</span></h5>
       <img id="student-icon"
       src="{% static 'frontend/student-icon.png' %}"
       alt="cool vector graphic">
